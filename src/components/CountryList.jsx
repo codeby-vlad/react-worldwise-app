@@ -5,7 +5,7 @@ import Message from "./Message";
 import { useCities } from "../contexts/CitiesContext";
 
 function CountriesList() {
-  const { cities, isLoading } = useCities();
+  const { cities, isLoading, flagEmojiToPNG } = useCities();
 
   if (isLoading) return <Spinner />;
 
@@ -23,7 +23,11 @@ function CountriesList() {
   return (
     <ul className={styles.countryList}>
       {countries.map((country) => (
-        <CountryItem country={country} key={country.country} />
+        <CountryItem
+          country={country}
+          key={country.country}
+          flagEmojiToPNG={flagEmojiToPNG}
+        />
       ))}
     </ul>
   );
