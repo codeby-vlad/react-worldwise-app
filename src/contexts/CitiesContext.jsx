@@ -38,7 +38,7 @@ function CitiesProvider({ children }) {
   }
 
   const flagEmojiToPNG = (flag) => {
-    if (!flag) return "";
+    if (!flag || flag.length < 2) return "";
     var countryCode = Array.from(flag, (codeUnit) => codeUnit.codePointAt())
       .map((char) => String.fromCharCode(char - 127397).toLowerCase())
       .join("");
